@@ -1,5 +1,16 @@
 searchguard:
   dynamic:
+    proxy_auth_domain:
+      enabled: true
+      order: 0
+      http_authenticator:
+        type: proxy
+        challenge: false
+        config:
+          user_header: "x-proxy-user"
+          roles_header: "x-proxy-roles"
+      authentication_backend:
+        type: noop
     authc:
       basic_internal_auth:
         enabled: true
